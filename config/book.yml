@@ -1,0 +1,11 @@
+---
+slug: free-object
+filename: free-object
+title: Free Objects in Scala
+subtitle: Abstract Algebra Made Less Abstract
+description: The short book describes free monoids and monads, their implementation in Scala, and example applications
+author: Noel Welsh
+copyright: 2014
+uuid: fa15205d-951a-4161-829c-313857bc0d39
+pdf_preview_page_range: 1..30
+epub_mobi_preview_chapter_range: 0..1
