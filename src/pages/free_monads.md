@@ -43,7 +43,7 @@ val idExe: Option ~> Option = new (Option ~> Option) {
 }
 ```
 
-Don't worry about the `\textasciitilde>` symbol. We'll get to that in a bit.
+Don't worry about the `~>` symbol. We'll get to that in a bit.
 
 With this definition we can run our computation.
 
@@ -56,13 +56,13 @@ res0: Option[Int] = Some(6)
 
 ## Natural Transformations
 
-The `\textasciitilde>` syntax, actually a type used with infix notation, represents a [natural transformation](http://docs.typelevel.org/api/scalaz/nightly/#scalaz.NaturalTransformation). A natural transformation is just the functor-level equivalent of a function. A function of type `A => B` transforms `A`s into `B`s. A natural transform with type `A \textasciitilde> B` transforms `A[_]`s into `B[_]`s. As we can see from the example above, they are fairly straightforward to define.
+The `~>` syntax, actually a type used with infix notation, represents a [natural transformation](http://docs.typelevel.org/api/scalaz/nightly/#scalaz.NaturalTransformation). A natural transformation is just the functor-level equivalent of a function. A function of type `A => B` transforms `A`s into `B`s. A natural transform with type `A ~> B` transforms `A[_]`s into `B[_]`s. As we can see from the example above, they are fairly straightforward to define.
 
 ## Exercises
 
 ### Unnatural Transformations
 
-Let's explore natural transformations by implementing a transformation `Option \textasciitilde> List` and using it to run our free monad. Finish the implementation of
+Let's explore natural transformations by implementing a transformation `Option ~> List` and using it to run our free monad. Finish the implementation of
 
 ```scala
 val listExe: Option ~> List = ???
