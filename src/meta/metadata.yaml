@@ -1,0 +1,20 @@
+---
+# Used by Pandoc to print covers:
+title: Essential Interpreters
+author: "Noel Welsh and Dave Gurnell"
+date: "Pre-Release, Feburary 2015"
+# Used by Pandoc to generate the PDF cover...
+# see src/css/book.css for HTML/ePub covers:
+coverColor: "E8515B"
+# Used by Grunt to name output files:
+filenameStem: "essential-interpreters"
+# Used by Grunt to create a ZIP of source code:
+exercisesRepo: null # "git@github.com:underscoreio/essential-interpreters-code.git"
+# Used by Grunt to assemble pandoc command line:
+pages:
+  - src/pages/introduction.md
+  - src/pages/free_monoids.md
+  - src/pages/free_monads.md
+  - src/pages/solutions.md
+
+...

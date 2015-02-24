@@ -24,6 +24,8 @@ object FoldMonoid {
 }
 ```
 
+## Free Monads
+
 ### Unnatural Transformations
 \label{sol:free_monoid_unnatural}
 
