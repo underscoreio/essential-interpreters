@@ -18,5 +18,6 @@ pages:
   - src/pages/free_monoids.md
   - src/pages/free_monads.md
   - src/pages/solutions.md
+  - src/pages/links.md
 
 ...
