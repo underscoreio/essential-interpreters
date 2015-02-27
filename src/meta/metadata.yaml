@@ -13,6 +13,8 @@ exercisesRepo: null # "git@github.com:underscoreio/essential-interpreters-code.g
 # Used by Grunt to assemble pandoc command line:
 pages:
   - src/pages/introduction.md
+  - src/pages/untyped_interpreters.md
+  - src/pages/monadic_interpreters.md
   - src/pages/free_monoids.md
   - src/pages/free_monads.md
   - src/pages/solutions.md
