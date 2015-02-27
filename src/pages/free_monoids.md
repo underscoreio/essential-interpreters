@@ -51,7 +51,6 @@ Let's quickly recap what we have done. Using `List` we can represent the structu
 A free object means one that contains only the structure needs to represent the object in question (in our case, monoids) and nothing else. `List` meets these criteria.
 
 ## Exercises
-\label{sec:free_monoid_ex}
 
 ### Basics
 
@@ -60,7 +59,13 @@ Given `List(1, 2, 3, 4)`
 - add up the elements of the list; and
 - multiply together the elements of the list.
 
-\textsc{Solution~\ref{sol:free_monoid_basics}}
+<div class="solution">
+```scala
+List(1, 2, 3, 4).foldLeft(0){_ + _}
+List(1, 2, 3, 4).foldLeft(1){_ * _}
+```
+</div>
+
 
 ### Monoid Interpreter
 
@@ -70,4 +75,14 @@ Given a `List` and a `Monoid` instance, implement a function that applies the mo
 FoldMonoid(List(1, 2, 3, 4))(Monoid[Int])
 ```
 
-\textsc{Solution~\ref{sol:free_monoid_interpreter}}
+<div class="solution">
+If you have taken *Essential Scalaz* you should recognise this is a limited form of `foldMap`. Here's one implementation of it
+
+```scala
+import scalaz.Monoid
+
+object FoldMonoid {
+  def apply[A](in: List[A])(implicit monoid: Monoid[A]) =
+    in.foldLeft(monoid.zero)(monoid.append)
+}
+```</div>

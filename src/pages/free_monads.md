@@ -77,7 +77,14 @@ scala> free.foldMap(listExe)
 res2: List[Int] = List(6)
 ```
 
-\textsc{Solution~\ref{sol:free_monoid_unnatural}}
+<div class="solution">
+```scala
+val listExe: Option ~> List = new (Option ~> List) {
+  def apply[A](in: Option[A]): List[A] =
+    in map (List(_)) getOrElse Nil
+}
+```
+</div>
 
 
 ### Timing. It's All About Timing
@@ -104,7 +111,20 @@ object Timer {
 }
 ```
 
-\textsc{Solution~\ref{sol:free_monoid_timer_monad}}
+<div class="solution">
+```scala
+implicit val logMonad = new Monad[Timer] {
+  def bind[A, B](fa: Timer[A])(f: (A) ⇒ Timer[B]): Timer[B] = {
+    val now = System.nanoTime()
+    val result = fa.value.map(f).getOrElse(Timer(DList(), None))
+    Timer((fa.times :+ now) ++ result.times, result.value)
+  }
+  def point[A](a: ⇒ A): Timer[A] = {
+    Timer(DList(System.nanoTime()), some(a))
+  }
+}
+```
+</div>
 
 Now implement a natural transformation from `Option` to `Timer`.
 
@@ -125,6 +145,12 @@ scala> timer.value
 res6: Option[Int] = Some(6)
 ```
 
-\textsc{Solution~\ref{sol:free_monoid_timer_natural}}
+<div class="solution">
+```scala
+val timerExe: Option ~> Timer = new (Option ~> Timer) {
+  def apply[A](in: Option[A]): Timer[A] =
+    Timer(DList(), in)
+}
+```
+</div>
 
-\input{chapters/interpreters}
