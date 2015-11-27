@@ -1,6 +1,6 @@
 # Introduction
 
-This short book explores the construction of interpreters, looking at three techniques:
+This book explores the construction of interpreters, looking at three techniques:
 
 - basic untyped interpreters over algebraic data types;
 - monadic interpreters; and
@@ -8,7 +8,11 @@ This short book explores the construction of interpreters, looking at three tech
 
 The increase of sophistication of our interpreters increases their flexibility. The final pattern, the free monad, allows us to freely (!) compose together languages and their interpreters.
 
-Before we get into the code, lets stop to ask why are interpreters interesting? Here's [Don Stewart][link-don-stewart], Haskell hacker extraordinaire at Standard Chartered Bank, [on the design of large systems in functional programming][link-don-stewart-so]:
+We look at internal DSLs.
+
+We aren't so interested in end-user readable DSLs. The focus is on implementation techniques, not playing games with implicits and so on to make code that reads like prose.
+
+Before we get into the code, lets stop to ask why are interpreters interesting? Here's [Don Stewart][link-don-stewart], Haskell hacker extraordinaire, [on the design of large systems in functional programming][link-don-stewart-so]:
 
 > In my experience, almost all designs fall into the 'compiler' or
 > 'interpreter' pattern, using a model of the data and functions on
