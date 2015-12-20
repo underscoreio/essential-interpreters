@@ -5,7 +5,7 @@ We'll now extend our interpreter to include some simple string operations. This 
 - we have to use a more complex representation of values, which can now be numbers or strings; and
 - we have to allow the possibility of evaluation resulting in an error.
 
-We'll first create an algebraic data type to represent the two types of values in our programs.
+We'll first create an algebraic data type to represent the two types of values our programs can evaluate to.
 
 ```scala
 sealed trait Value
@@ -35,7 +35,7 @@ These additions to our language makes our interpreter more complex in two ways: 
 type Result[A] = Xor[String,A]
 ```
 
-Our interpreter now has type `Expression => Result[Value]`. Checking tags requires a bit more infrastructure, which we'll build now.
+Our interpreter now has type `Expression => Result[Value]`. Checking tags requires a bit more infrastructure, which we'll now build.
 
 ```scala
 def checkNumber(in: Value): Result[Double] =
