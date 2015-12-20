@@ -1,8 +1,11 @@
 ## Other Data Types
 
-We'll now extend our interpreter to include some simple string operations. In doing so we'll see why we call this an untyped interpreter.
+We'll now extend our interpreter to include some simple string operations. This will require two changes to our interpreter
 
-We'll first create an algebraic data type to represent values in our programs.
+- we have to use a more complex representation of values, which can now be numbers or strings; and
+- we have to allow the possibility of evaluation resulting in an error.
+
+We'll first create an algebraic data type to represent the two types of values in our programs.
 
 ```scala
 sealed trait Value
@@ -24,13 +27,15 @@ final case class LowerCase(string: Expression) extends Expression
 final case class Literal(get: Value) extends Expression
 ```
 
-Our interpreter uses structural recursion as before, but now we have to check that values have the correct tag. This also changes the result of our interpreter---we have the possibility of error. We rerpesent this using the `Xor` type, encoding errors as `Strings`.
+We don't currently have any way of working out the type of value an expression evaluates to without actually evaluating it. This means our expression case classes representing operations have to accept all expressions as arguments. We can't statically rule out, for example, expressions that evaluate to a `Chars` as arguments to `Plus`. Doing so requires a type system, which we'll see how to introduce in a later section.
+
+These additions to our language makes our interpreter more complex in two ways: we have check that values have the correct tag for the operation they are applied to, and we have to change the result type of the interpreter to allow for the possibility of error. We'll represent the possibility of error during evaluation using the `Xor` type, encoding errors as `Strings`.
 
 ```scala
 type Result[A] = Xor[String,A]
 ```
 
-We start by building a bit of infrastructure to check tags.
+Our interpreter now has type `Expression => Result[Value]`. Checking tags requires a bit more infrastructure, which we'll build now.
 
 ```scala
 def checkNumber(in: Value): Result[Double] =
