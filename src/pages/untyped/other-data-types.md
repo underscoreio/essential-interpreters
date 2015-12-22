@@ -37,6 +37,37 @@ type Result[A] = Xor[String,A]
 
 Our interpreter now has type `Expression => Result[Value]`. Checking tags requires a bit more infrastructure, which we'll now build.
 
+We'll use two main abstractions. A `Refinement` is a function `Value => Result[A]` that refines, if possible, a `Value` to a specific Scala type. For example, we can refine `Chars` to `String`. If the refinement fails we return an error message. We go the other way with an `Injection`, which is just a function `A => Value`. We'll add in some implicit machinery to make this all easier to use.
+
+We'll start with refinements. As we'll want to reuse this code across interpreters we'll make it generic in the type of values (the type `I` in `Refinement` below). As a refinement is just a function all we add is an implicit class to make applying refinements easier.
+
+```scala
+import cats.data.Xor
+
+object Refinement {
+  type Result[A] = Xor[String,A]
+  type Refinement[I,O] = I => Result[O]
+
+  implicit class RefinementOps[I](in: I) {
+    def refine[O](implicit r: Refinement[I,O]): Result[O] =
+      r(in)
+  }
+}
+```
+
+Injections are even simpler as we don't have to worry about errors.
+
+```scala
+object Injection {
+  type Injection[I,O] = I => O
+
+  implicit class InjectionOps[I](in: I) {
+    def inject[O](implicit i: Injection[I,O]): O =
+      i(in)
+  }
+}
+```
+
 ```scala
 def checkNumber(in: Value): Result[Double] =
   in match {
