@@ -23,7 +23,7 @@ sealed trait Expression {
       case Minus(l, r)    => l.eval - r.eval
       case Multiply(l, r) => l.eval * r.eval
       case Divide(l, r)   => l.eval / r.eval
-      case Literal(v)       => v
+      case Literal(v)     => v
     }
 }
 final case class Plus(left: Expression, right: Expression) extends Expression
@@ -53,7 +53,7 @@ sealed trait Expression {
       case Minus(l, r)    => l.eval - r.eval
       case Multiply(l, r) => l.eval * r.eval
       case Divide(l, r)   => l.eval / r.eval
-      case Literal(v)       => v
+      case Literal(v)     => v
     }
 
   def +(that: Expression): Expression =
