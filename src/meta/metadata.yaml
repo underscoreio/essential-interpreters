@@ -20,6 +20,8 @@ pages:
   - src/pages/untyped/binding.md
   - src/pages/untyped/hoas.md
   
+  - src/pages/typed/introduction.md
+
   - src/pages/monadic_interpreters.md
   - src/pages/free_monoids.md
   - src/pages/free_monads.md
