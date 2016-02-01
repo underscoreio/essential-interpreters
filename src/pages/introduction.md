@@ -26,3 +26,11 @@ Transforming data from one representation to another is what interpreters do. Th
 ## Interpreters vs Compilers
 
 What is the difference between a compiler and an interpreter? For our purposes, an interpreter will perform effects, while a compiler will merely transform one type to another without performing effects. This is a very artificial distinction. Techniques like JIT compilers, abstract interpretation, and dependently typed languages blur the distinction between the two to the point that ultimately it is meaningless. We can all agree, however, that "transpiler" should be eradicated from our vocabulary.
+
+## Changelog
+
+In the February 2016 release:
+
+- Describe basic untyped interpreters, up to dynamic checks.
+- Sketch out sections on HOAS and typed interpreters
+- Update code repository at https://github.com/underscoreio/essential-interpreters-code
