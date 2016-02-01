@@ -2,7 +2,7 @@
 # Used by Pandoc to print covers:
 title: Essential Interpreters
 author: "Noel Welsh and Dave Gurnell"
-date: "Pre-Release, December 2015"
+date: "Pre-Release, February 2016"
 # Used by Pandoc to generate the PDF cover...
 # see src/css/book.css for HTML/ePub covers:
 coverColor: "E8515B"
