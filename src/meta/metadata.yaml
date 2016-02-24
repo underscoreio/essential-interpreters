@@ -2,7 +2,7 @@
 # Used by Pandoc to print covers:
 title: Essential Interpreters
 author: "Noel Welsh and Dave Gurnell"
-date: "Pre-Release, Feburary 2015"
+date: "Pre-Release, February 2016"
 # Used by Pandoc to generate the PDF cover...
 # see src/css/book.css for HTML/ePub covers:
 coverColor: "E8515B"
@@ -17,7 +17,11 @@ pages:
   - src/pages/untyped/introduction.md
   - src/pages/untyped/arithmetic.md
   - src/pages/untyped/other-data-types.md
+  - src/pages/untyped/binding.md
+  - src/pages/untyped/hoas.md
   
+  - src/pages/typed/introduction.md
+
   - src/pages/monadic_interpreters.md
   - src/pages/free_monoids.md
   - src/pages/free_monads.md
