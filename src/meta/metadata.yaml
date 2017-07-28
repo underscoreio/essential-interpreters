@@ -3,6 +3,7 @@
 title: Essential Interpreters
 author: "Noel Welsh and Dave Gurnell"
 date: "Pre-Release, February 2016"
+copyright: "2014-2017"
 # Used by Pandoc to generate the PDF cover...
 # see src/css/book.css for HTML/ePub covers:
 coverColor: "E8515B"
@@ -12,20 +13,17 @@ filenameStem: "essential-interpreters"
 exercisesRepo: null # "git@github.com:underscoreio/essential-interpreters-code.git"
 # Used by Grunt to assemble pandoc command line:
 pages:
-  - src/pages/introduction.md
-
-  - src/pages/untyped/introduction.md
-  - src/pages/untyped/arithmetic.md
-  - src/pages/untyped/other-data-types.md
-  - src/pages/untyped/binding.md
-  - src/pages/untyped/hoas.md
-  
-  - src/pages/typed/introduction.md
-
-  - src/pages/monadic_interpreters.md
-  - src/pages/free_monoids.md
-  - src/pages/free_monads.md
-  - src/pages/solutions.md
-  - src/pages/links.md
+  - introduction.md
+  - untyped/introduction.md
+  - untyped/arithmetic.md
+  - untyped/other-data-types.md
+  - untyped/binding.md
+  - untyped/hoas.md
+  - typed/introduction.md
+  - monadic_interpreters.md
+  - free_monoids.md
+  - free_monads.md
+  - solutions.md
+  - links.md
 
 ...
